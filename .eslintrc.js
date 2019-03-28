@@ -22,6 +22,5 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': 0,
     'function-paren-newline': 0,
-    'react/destructuring-assignment': 0,
   },
 };
