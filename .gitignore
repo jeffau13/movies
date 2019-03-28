@@ -26,3 +26,4 @@ yarn-error.log*
 
 src/mylogo.svg
 src/config.json
+.eslintrc.js
