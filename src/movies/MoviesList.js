@@ -1,19 +1,23 @@
+/* eslint react/no-did-mount-set-state: 0 */
 import React, { PureComponent } from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getMovies } from './actions';
+import styled from 'styled-components';
 import Movie from './Movie';
-import api from '../config.json';
+import { getMovies } from './actions';
 
 class MoviesList extends PureComponent {
   componentDidMount() {
-    const { getMovies } = this.props;
-    getMovies();
+    const { getMovies, isLoaded } = this.props;
+    if (!isLoaded) {
+      getMovies();
+    }
+    // this.props.getMovies();
   }
 
   render() {
-    const { movies } = this.props;
+    const { movies, isLoaded } = this.props;
+    if (!isLoaded) return <h1>Loading</h1>;
     return (
       <MovieGrid>
         {movies.map(movie => (
@@ -26,6 +30,7 @@ class MoviesList extends PureComponent {
 
 const mapStateToProps = state => ({
   movies: state.movies.movies,
+  isLoaded: state.movies.moviesLoaded,
 });
 
 const mapDispatchToProps = dispatch =>
@@ -40,8 +45,6 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(MoviesList);
-
-// styled components
 
 const MovieGrid = styled.div`
   display: grid;
