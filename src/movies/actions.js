@@ -2,6 +2,7 @@ import api from '../config.json';
 
 export const GET_MOVIES = 'GET_MOVIES';
 export const GET_MOVIE = 'GET_MOVIE';
+export const RESET_MOVIE = 'RESET_MOVIE';
 
 export function getMovies() {
   // eslint-disable-next-line func-names
@@ -31,5 +32,11 @@ export function getMovie(id) {
       type: 'GET_MOVIE',
       data: movie,
     });
+  };
+}
+
+export function resetMovie() {
+  return {
+    type: 'RESET_MOVIE',
   };
 }

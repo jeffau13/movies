@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Overdrive from 'react-overdrive';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getMovie } from './actions';
+import { getMovie, resetMovie } from './actions';
 
 import { Poster } from './Movie';
 
@@ -13,6 +13,10 @@ class MovieDetail extends Component {
   componentDidMount() {
     const { getMovie, match } = this.props;
     getMovie(match.params.id);
+  }
+
+  componentWillUnmount() {
+    this.props.resetMovie();
   }
 
   render() {
@@ -44,6 +48,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       getMovie,
+      resetMovie,
     },
     dispatch,
   );
