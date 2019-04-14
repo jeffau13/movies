@@ -20,6 +20,7 @@ export default Movie;
 Movie.propTypes = {
   movie: PropTypes.shape({
     title: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
   }).isRequired,
 };
 
