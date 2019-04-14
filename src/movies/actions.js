@@ -1,13 +1,6 @@
-import api from './config.json';
+import api from '../config.json';
 
-export const TOGGLE_MESSAGE = 'TOGGLE_MESSAGE';
 export const GET_MOVIES = 'GET_MOVIES';
-
-export function toggleMessage() {
-  return {
-    type: 'TOGGLE_MESSAGE',
-  };
-}
 
 export function getMovies() {
   // eslint-disable-next-line func-names

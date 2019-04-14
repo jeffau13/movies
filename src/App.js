@@ -9,9 +9,10 @@ import thunk from 'redux-thunk';
 import rootReducer from './rootReducer';
 import logo from './logo.svg';
 import './App.css';
-import Toggle from './Toggle';
-import MoviesList from './MoviesList';
-import MovieDetail from './MovieDetail';
+
+import Toggle from './toggle/Toggle';
+import MoviesList from './movies/MoviesList';
+import MovieDetail from './movies/MovieDetail';
 
 const middleware = [logger, thunk];
 const store = createStore(rootReducer, {}, composeWithDevTools(applyMiddleware(...middleware)));
