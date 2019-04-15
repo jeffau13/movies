@@ -34,7 +34,7 @@ const App = () => (
           </Link>
         </header>
 
-        <Toggle />
+        {/* <Toggle /> */}
         <Switch>
           <Route exact path="/" component={MoviesList} />
           <Route path="/:id" component={MovieDetail} />
